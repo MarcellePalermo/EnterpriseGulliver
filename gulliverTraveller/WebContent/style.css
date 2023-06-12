@@ -1,0 +1,686 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Source+Sans+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+:root{
+    --branco-gelo: #F9F9F9;
+    --branco:#FFFFFF;
+    --azul-escuro:#171C2D;
+    --grafite:#2B2B2B;
+    --amarelo:#EAB56F;
+    --cinza:#707070;
+    --azul:#355C71;
+    --nova-cor:#254252;
+    --fonte-principal: 'Montserrat', sans-serif;
+    --fonte-segundaria: 'Source Sans Pro', sans-serif;
+}
+
+
+body{
+    font-family: var(--fonte-principal);
+    overflow-x: hidden; /*esconde a barra de rolagem horizontal*/
+}
+
+
+
+header{ 
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.logo{
+    color: var(--branco)
+}
+
+
+/* LOGIN */
+.box {
+    position: absolute;
+    width: 400px;
+    height: 440px;
+    margin-left: 38%;
+    background: var(--branco);
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb(0, 0, 0, .5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+   transition: transform .5s ease, height .2s ease;
+}
+
+.box.active-popup {
+    transform: scale(1);
+}
+
+.box.active {
+    height: 462px;
+}
+
+/*caixa box*/
+.box .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.box .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.box.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+
+.box .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(440px);
+}
+
+.box.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.box .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: var(--amarelo);
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/*nome login*/
+.form-box h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--azul-escuro);
+    text-align: center;
+}
+
+/*linha abaixo*/
+.imput-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--amarelo);
+    margin: 30px 0;
+}
+
+/*email e password*/
+.imput-box label {
+    position: absolute;
+    top: 9%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--azul-escuro);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+
+
+/*caixa email e password*/
+.imput-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--amarelo);
+    padding: 0 35px 0 5px;
+}
+
+/*icones*/
+.imput-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: var(--amarelo);
+    line-height: 57px;
+}
+
+/*nome remember me*/
+.remeber-forgot {
+    font-size: 14px;
+    color: var(--azul-escuro);
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+/*quadrado do checkbox*/
+.remeber-forgot label input {
+    accent-color: var(--amarelo);
+    margin-right: 3px;
+}
+
+/*nome forgot password*/
+.remeber-forgot a {
+    color: var(--azul-escuro);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/*nome forgot password quando passar o mouse*/
+.remeber-forgot a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/*botão inferior de login*/
+.btn {
+    width: 100%;
+    height: 45px;
+    border: 2px solid var(--azul-escuro);
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--azul-escuro);
+    font-size: 16px;
+    color: var(--branco);
+}
+
+/*botão inferior de login*/
+.btn:hover {
+    background-color: transparent;
+    color: var(--azul-escuro);
+    transition: .5s;
+}
+
+/*
+ /nao tem conta?*/
+.login-register {
+    font-size: 16px;
+    color: var(--azul-escuro);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+
+}
+
+/*registrar*/
+.login-register p a {
+    color: var(--azul-escuro);
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/*registrar*/
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+/*sessão navegação e header*/
+.section__navegacao{
+    width: 100vw;
+    height: 80vh;
+    background-position: center;
+    background-size: 1550px;
+    background-image: url("https://raw.githubusercontent.com/Raquel-Moura/Traveller_Guilliver/236323672c884d6dbeaeab4bdd90bb327f817e0c/assets/header.svg");
+    
+}
+
+.navegacao{
+    display: flex;
+    justify-content: center;
+   
+}
+ /*links*/
+.navegacao a{
+    font-family:var( --fonte-principal);
+    position: relative;
+    text-align: left;
+    font-weight: 300;
+    font-size: 1.1em;
+    text-decoration: none;
+    margin-left: 80px;
+    color: var(--branco);
+    opacity: 1;
+}
+/*linhas abaixo dos links*/
+.navegacao a::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--branco);
+    border-radius: 5px;
+    transform: scale(0);
+    transition: transform .5s;
+}
+/*linhas abaixo dos links*/
+.navegacao a:hover::after{ 
+    transform: scale(1);
+}
+
+ /*botão superior*/
+header .btn_login_popup{
+    height: 50px;
+    width: 130px;
+    background-color: transparent;
+    border: 2px solid var(--branco);
+    outline: none;
+    border-radius: 6px;
+    font-family:var( --fonte-principal);
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--branco);
+    opacity: 1;
+    font-weight: 300;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+header .btn_login_popup:hover{ 
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+}
+/*textos banner*/
+.section__navegacao--textos{
+    margin-top: 10%;
+    margin-left: 25%;
+    color: var(--branco);
+    text-align: center;
+    position: absolute
+   
+    
+}
+.navegacao__titulo{
+    font-size: 31px;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+.navegacao__paragrafo{
+    font-size: 26px;
+    font-weight: 300;
+    opacity: 1;
+}
+/*cidades*/
+.section__cidades{
+    height: auto;
+    background-color: var(--branco-gelo);
+}
+.cidades__container{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.container__imagens {
+    margin: 1em;
+    text-align: center;
+    padding: 1em 0;   
+ }
+.container__imagens img{
+    border-radius: 5px;
+    width: 70%;
+    height: 320px;
+}
+.section__cidades-titulo{
+    padding: 2.5em;
+    width: 45%;
+    color: var(--azul);
+    font-weight: bold;
+    font-size: 32px;
+}
+.container__titulo-cidade{
+    color: var(--azul-escuro);
+    font-weight: bold;
+    font-size: 26px;
+    margin-top: 1em;
+}
+.container__descrisao{
+    text-align: center;
+    padding: 1em 3em;
+    color: var(--grafite);
+    font-family: var(--fonte-segundaria);
+    font-size: 18px;
+    margin-bottom: 2em;
+}
+.container__imagens a{
+    text-decoration: none;
+    color: var(--branco);
+    font-family: var(--fonte-segundaria);
+    font-size: 18px;
+    border: 2px solid var(--grafite);
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    margin-bottom: 2em;
+    background-color: var(--azul-escuro);
+}
+.container__imagens a:hover{
+    background-color: transparent;
+    color: var(--azul-escuro);
+}
+/*section mapa*/
+.section__mapa{
+    background-color: var(--branco);
+    height: 80vh;
+}
+.section__mapa-titulo{
+    padding: 1.5em;
+    width: 45%;
+    color: var(--nova-cor);
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.mapa{
+    margin-left:  30%;
+    
+
+}
+/*section jornada*/
+.section__jornada{
+    background-color: var(--branco-gelo);
+}
+.container__jornada{
+    padding: 2em 7em;
+}
+.jornada__titulo{
+    color: var(--nova-cor);
+    font-size: 26px;
+    font-weight: bold;
+    /*padding: 1em 2em 0;*/
+}
+.jornada__paragrafo{
+    color: var(--grafite);
+    font-size: 21px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.container__jornada label{
+    position: relative;
+    margin-top: 1em;
+}
+.container__jornada label input{
+    background-color: var(--branco);
+    border: none;
+    width: 610px;
+    height: 63px;
+    padding: 0 16px;
+    border-radius: 32px;
+}
+.email::placeholder{
+    padding: 0 2em;
+    color: var(--grafite);
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+}
+.container__jornada  button{
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    bottom: 0;
+    border: none;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    font-weight: 300;
+    font-family: var(--fonte-principal);
+    font-size: 13px;
+    padding:  0 1em;
+    border-radius: 24px;
+    height: 51px;
+    width: 207px;
+    cursor: pointer;
+}
+.container__jornada  button:hover{
+    background-color: var(--nova-cor);
+}
+/*ultima sessão*/
+.rodape{
+    background-color: var(--azul-escuro);
+    height: auto;
+}
+.ultima__sessão{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    padding: 2em 3em;
+}
+.traveller__descricao-titulo h2{
+    color: var(--branco);
+}
+.traveller__descricao-paragrafo p{
+    color: var(--branco);
+    font-size: 18px;
+    font-weight: 200;
+    opacity: 1;
+    width: 55%;
+    padding-top: 2em;
+}
+.icones__socias{
+    cursor: pointer;
+    color: var(--amarelo);
+   padding-top: 1em;
+}
+.sociais{
+    width: 22px;
+    height: 22px;
+}
+
+.links_rapido a{
+   display: block;
+   text-decoration: none;
+   padding-top: 1em;
+   font-size: 18px;
+   color: var(--branco);
+}
+.links_rapido a:hover{
+    color: var(--amarelo);
+}
+.termos__condicoes a{
+    display: block;
+    text-decoration: none;
+    padding-top: 1em;
+    font-size: 18px;
+    color: var(--branco);
+    padding-left: 11em;
+}
+.termos__condicoes a:hover{
+    color: var(--amarelo);
+}
+
+
+.rodape__projeto{
+   border-top: 1px solid #707070;
+    color: var(--branco);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 1em;
+}
+
+/* PÁGINA SOBRE */
+.section__navegacao--textos-sobre{
+     margin-top: 10%;
+    margin-left: 42%;
+    color: var(--branco);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+}
+.section__jornada{
+    width: 100%;
+    background-color: var(--branco-gelo);
+}
+.container__jornada{
+    width: 70%;
+    line-height: 30px;
+}
+.sobre_titulo {
+    color: var(--nova-cor);
+    font-size: 19px;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    
+}
+
+.sobre_paragrafo {
+    color: var(--grafite);
+    font-size: 16px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+/* PÁGINA ALUGUEL */
+
+.section_aluguel {
+    width: 100vw;
+    height: 80vh;
+    background-position: center;
+    background-size: 1550px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-image: url("https://raw.githubusercontent.com/Raquel-Moura/Traveller_Guilliver/main/assets/aluguel%20de%20carro.jpeg");
+    background-repeat: no-repeat;
+}
+
+
+.section__navegacao--textos-carro {
+    margin-top: 10%;
+    margin-left: 42%;
+    color: var(--branco);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute
+}
+.container_pesquisar-carros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--branco-gelo);
+    height: 80vh;
+    color: var(--branco);
+}
+.base_carros{
+    display: flex;
+    background-color: var(--azul-escuro);
+    padding: 5em 2em;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.buscar{
+    flex-direction: column;
+}
+.div_retirada{
+    padding-bottom: 1em;
+}
+.span_retirada{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--branco);
+}
+.input_carro::placeholder{
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-family: var(--fonte-principal);
+}
+.input_carro{
+    width: 30vw;
+    background-color: var(--branco);
+    border: none;
+    border-radius: 5px;
+    padding: 2em 1em;
+}
+
+
+/*datas*/
+.datas input{
+    background-color: var(--branco);
+    padding: 1.6em 1em;
+    border:2px solid var(--branco);
+    border-radius: 5px;
+    padding-right: 1em;
+}
+.div_data{
+    padding-bottom: 1em;
+}
+.span_data{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--branco);
+}
+/*passageiros*/
+.passageiro select{
+    background-color: var(--branco);
+    padding: 1.6em 2em;
+    border:2px solid var(--branco);
+    border-radius: 5px;
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 1em;
+}
+.div_passageiro{
+    padding-bottom: 1em;
+}
+.span_passageiro{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--branco);
+}
+
+/*burcar carros*/
+.button__carros button{
+    background-color: var(--amarelo);
+    border:2px solid var(--amarelo);
+    border-radius: 5px;
+    padding: 0.5em 1.2em;
+    color: var(--azul-escuro);
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 2em;
+}
+.button__carros button:hover{
+    background-color: transparent;
+   color: var(--branco);
+   transition: 0.5s
+}
